@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/22 13:49:34 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/02 17:55:26 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/05/06 23:13:03 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/05/10 12:33:45 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t n)
+void ft_lstadd_front(t_list **alst, t_list *new)
 {
-    int i;
-    unsigned char *dst1;
-    const unsigned char *src1;
+    t_list *temp;
 
-    dst1 = dst;
-    src1 = src;
-    i = -1;
-    if (dst1 > src1)
-    {
-        while (++i < n)
-        {
-            dst1[n - i - 1] = src1[n - i - 1];
-        }
-    }
-    else if (dst1 < src1)
-    {
-        while (n--)
-            *dst1++ = *src1++;
-    }
-    return (dst);
+    temp = *alst;
+    *alst = new;
+    new->next = temp;
 }

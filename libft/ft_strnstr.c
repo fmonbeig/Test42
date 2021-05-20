@@ -6,18 +6,18 @@
 /*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 21:04:25 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/02 17:56:44 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/20 16:35:03 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t i;
-	size_t j;
-	char *str;
-	char *to_find;
+	size_t	i;
+	size_t	j;
+	char	*str;
+	char	*to_find;
 
 	str = (char *)haystack;
 	to_find = (char *)needle;

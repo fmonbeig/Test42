@@ -6,21 +6,21 @@
 /*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:02:45 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/02 17:54:35 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/20 16:19:31 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    unsigned char *dest;
+	unsigned char	*dest;
 
-    dest = s;
-    while (n > 0)
-    {
-        *dest = 0;
-        dest++;
-        n--;
-    }
+	dest = s;
+	while (n > 0)
+	{
+		*dest = 0;
+		dest++;
+		n--;
+	}
 }

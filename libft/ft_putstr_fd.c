@@ -6,14 +6,14 @@
 /*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 17:12:54 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/02 17:21:03 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/20 15:59:49 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-    while (*s)
-        write(fd, s++, 1);
+	while (*s)
+		write(fd, s++, 1);
 }

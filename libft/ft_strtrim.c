@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 22:45:23 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/20 17:00:28 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/21 11:09:14 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_charset(char c, char const *set)
+static int	is_charset(char c, char const *set)
 {
 	while (*set)
 	{
@@ -24,7 +24,7 @@ int	is_charset(char c, char const *set)
 	return (0);
 }
 
-int	size_malloc(char const *str, char const *set)
+static int	size_malloc(char const *str, char const *set)
 {
 	int	count;
 	int	i;

@@ -2,13 +2,17 @@
 
 #include "libft.h"
 #include <stdio.h>
-#include "ft_substr.c"
+#include <string.h>
+#include "ft_strtrim.c"
 
 int main()
 {
-char str[] = "bonjour je suis a 42";
+char dst[] = "bonlajour laje suisla ici la";
+char set[] = "la";
+
 int i = 100;
 
-printf("%s", ft_substr(str, i, 50 * sizeof(char)));
+printf("%s\n", ft_strtrim(dst,set));
 
+return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 18:06:55 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/20 17:08:47 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/21 17:52:18 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char			*ptr;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	if (len > ft_strlen(s))
 	{
 		ptr = malloc(ft_strlen(s) * sizeof(char) + 1);

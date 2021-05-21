@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 11:41:13 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/20 16:55:35 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/21 17:49:31 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 
 	dst1 = dst;
 	src1 = src;
+
 	while (src1 && n > 0)
 	{
 		if (*src1 == (unsigned char)c)
@@ -31,5 +32,5 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 		src1++;
 		n--;
 	}
-	return (0);
+	return (NULL);
 }

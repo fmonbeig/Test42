@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 14:53:26 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/20 17:06:10 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/21 17:51:06 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 	size_t	l_src;
 	size_t	x;
-
+	
+	if (!dst && !src)
+		return (NULL);
 	l_src = ft_strlen(src);
 	i = 0;
 	x = 0;

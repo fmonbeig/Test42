@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 22:45:23 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/21 11:09:14 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/21 17:42:01 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	is_charset(char c, char const *set)
 {
-	while (*set)
+	while (*set && set)
 	{
 		if (c == *set)
 			return (1);

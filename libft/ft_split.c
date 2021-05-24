@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 10:07:53 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/21 11:08:52 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/24 13:30:51 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,23 @@ static int	size_word(const char *str, char c)
 	return (i);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**malloc_word(int words, char **ptr, char const *s, char c)
 {
-	char	**ptr;
-	int		words;
-	int		index;
-	int		i;
+	int	i;
+	int	index;
 
 	index = -1;
-	words = wordcount(s, c);
-	ptr = malloc(sizeof(char *) * words + 1);
-	if (!ptr)
-		return (NULL);
 	while (++index < words)
 	{
 		while (*s == c)
 			s++;
 		ptr[index] = malloc(sizeof(char) * size_word(s, c) + 1);
 		if (!ptr[index])
+		{
+			while (--index > 0)
+				free(ptr[index]);
 			return (NULL);
+		}	
 		i = 0;
 		while (*s != c && *s)
 			ptr[index][i++] = *s++;
@@ -73,4 +71,18 @@ char	**ft_split(char const *s, char c)
 	}
 	ptr[index] = 0;
 	return (ptr);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**ptr;
+	int		words;
+
+	if (!s)
+		return (NULL);
+	words = wordcount(s, c);
+	ptr = malloc(sizeof(char *) * words + 1);
+	if (!ptr)
+		return (NULL);
+	return (malloc_word(words, ptr, s, c));
 }

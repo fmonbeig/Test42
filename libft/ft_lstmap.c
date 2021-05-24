@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:38:27 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/20 16:25:02 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/24 13:46:13 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst && f)
 	{
 		add = ft_lstnew(f(lst->content));
+		if (!add)
+			return (0);
 		ft_lstadd_back(&newlist, add);
 		lst = lst->next;
 	}

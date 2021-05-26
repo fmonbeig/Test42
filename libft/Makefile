@@ -6,7 +6,7 @@
 #    By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/21 11:04:04 by fmonbeig          #+#    #+#              #
-#    Updated: 2021/05/24 09:54:36 by fmonbeig         ###   ########.fr        #
+#    Updated: 2021/05/26 16:39:14 by fmonbeig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = gcc
 
-CFLAG = -Wall -Werror -Wextra
+CFLAG = -Wall -Wextra -Werror
 
 SRC = ft_strlen.c \
 ft_bzero.c \
@@ -79,7 +79,7 @@ bonus:		$(OBJ) $(OBJ_BONUS)
 all: $(NAME)
 
 %.o: %.c
-	$(CC) $(FLAGS) -I includes -o $@ -c $<
+	$(CC) $(CFLAG) -I includes -o $@ -c $<
 
 clean: 
 	rm -f $(OBJ) $(OBJ_BONUS)

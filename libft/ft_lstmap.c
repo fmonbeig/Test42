@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:38:27 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/24 13:46:13 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/26 10:52:04 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		add = ft_lstnew(f(lst->content));
 		if (!add)
+		{
+			ft_lstclear(&newlist, del);
 			return (0);
+		}
 		ft_lstadd_back(&newlist, add);
 		lst = lst->next;
 	}

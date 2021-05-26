@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 10:07:53 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/24 13:30:51 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/26 16:37:07 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,12 @@ static char	**malloc_word(int words, char **ptr, char const *s, char c)
 	{
 		while (*s == c)
 			s++;
-		ptr[index] = malloc(sizeof(char) * size_word(s, c) + 1);
+		ptr[index] = malloc(sizeof(char) * (size_word(s, c) + 1));
 		if (!ptr[index])
 		{
-			while (--index > 0)
+			while (--index >= 0)
 				free(ptr[index]);
+			free(ptr);
 			return (NULL);
 		}	
 		i = 0;
@@ -81,7 +82,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	words = wordcount(s, c);
-	ptr = malloc(sizeof(char *) * words + 1);
+	ptr = malloc(sizeof(char *) * (words + 1));
 	if (!ptr)
 		return (NULL);
 	return (malloc_word(words, ptr, s, c));

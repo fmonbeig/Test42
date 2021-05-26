@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 10:54:06 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/24 10:07:14 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/26 10:07:35 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int					i;
 	unsigned char		*dst1;
 	const unsigned char	*src1;
 

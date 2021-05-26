@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 13:49:34 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/20 16:25:56 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/26 10:09:05 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	int					i;
+	size_t				i;
 	unsigned char		*dst1;
 	const unsigned char	*src1;
 

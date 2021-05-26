@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 18:06:55 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/24 13:31:23 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/25 11:53:14 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		if (!ptr)
 			return (NULL);
 	}
-	while (s[i + start] && i < len && start < ft_strlen(s))
+	while (start < ft_strlen(s) && s[i + start] && i < len)
 	{
 		ptr[i] = s[i + start];
 		i++;

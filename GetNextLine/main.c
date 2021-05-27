@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:53:51 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/26 17:10:48 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/27 18:16:29 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <sys/uio.h>
 #include <unistd.h>
 #include "get_next_line.c"
-#define BUFFER_SIZE 100
+//#define BUFFER_SIZE 10
 
 int main (int argv, char **argc)
 {
@@ -29,14 +29,20 @@ int main (int argv, char **argc)
     int i;
     
     fd = open("test.txt", O_RDONLY);
-
+  
     i = get_next_line(fd, &line);
     printf("\n\n%s", line);
     free(line);
+
+    
+    
     /*
-    i = read(fd, buff, BUFFER_SIZE);
-    printf("nombres de caracteres lu --> %d\n=====================\n", i);
-    printf("%s", buff);
+    while (i)
+    {
+        i = get_next_line(fd, &line);
+        printf("\n\n%s", line);
+        free(line);
+    }
     */
     close(fd);
     

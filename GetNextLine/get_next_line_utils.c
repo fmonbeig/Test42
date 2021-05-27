@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:14:43 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/27 10:57:00 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/27 18:10:48 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (*s2)
 		str[i++] = *s2++;
 	str[i] = 0;
+	free ((void *)s1);
 	return (str);
 }
 

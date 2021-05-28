@@ -6,9 +6,11 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:14:43 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/27 18:10:48 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/28 10:20:39 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -53,7 +55,7 @@ char	*ft_strdup(const char *s1)
 	return (ptr);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*str;
 	int		i;
@@ -69,7 +71,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (*s2)
 		str[i++] = *s2++;
 	str[i] = 0;
-	free ((void *)s1);
+
+	//free ((char *) s1);
 	return (str);
 }
 

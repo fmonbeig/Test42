@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:53:51 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/27 18:16:29 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/28 12:15:49 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,18 @@ int main (int argv, char **argc)
     (void)argc;
     char *line;
     int fd;
-    int i;
+    int n = 1;
+    int i = 0 ;
     
     fd = open("test.txt", O_RDONLY);
-  
-    i = get_next_line(fd, &line);
-    printf("\n\n%s", line);
+    
+    while(n)
+    {
+    n = get_next_line(fd, &line);
+    printf("%d \n", n);
+    printf("%s\n", line);
     free(line);
+    }
 
     
     

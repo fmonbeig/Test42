@@ -6,12 +6,12 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:56:09 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/27 18:19:38 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/28 12:39:07 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "get_next_line.h"
-#define BUFFER_SIZE 10
+#define BUFFER_SIZE 99999
 #include "get_next_line_utils.c"
 #include <stdio.h>
 
@@ -28,36 +28,21 @@ static char *save_line(char *buff)
     if (!str)
     return (NULL);
     i = -1;
-    while (buff[++i] != '\n')
+    while (buff[++i] && buff[i] != '\n')
         str[i] = buff[i];
         str[i] = '\0';
         return (str);
 }
 
-/*
-static int find_line(char *save)
-{
-    int i;
-    
-    i = -1;
-    if (!save)
-    return(0);
-    
-    while(save[i++])
-    {
-        if (save[i] == '\n')
-        return (1);
-    }
-    return(0);
-}
-*/
 static char *save_rest(char *save)
 {
     int i;
+    int j;
     char *ret;
     
     i = 0;
-    while(save[i] != '\n')
+    j = 0;
+    while(save[i] && save[i] != '\n')
         i++;
     
     if (!save[i])
@@ -68,8 +53,8 @@ static char *save_rest(char *save)
     return (NULL);
     
     while(save[++i])
-        *ret++ = save[i];
-        *ret = '\0';
+        ret[j++] = save[i];
+        ret[j] = '\0';
     free(save);
     return (ret);
 }
@@ -83,27 +68,26 @@ int get_next_line(int fd, char **line)
 
     if (fd < 0 || !line || BUFFER_SIZE < 0)
     return (-1);
-    
-    while (ret == read(fd, buff, BUFFER_SIZE) > 0)
+     
+    while ((ret = read(fd, buff, BUFFER_SIZE)) > 0)
     {
         buff[ret] = '\0';
         if (!save)
         save = ft_strdup(buff);
         else if (save)
-        {
             save = ft_strjoin(save, buff);
-            free(buff);
-        }
+        //printf(" SAVE : %s 9 \n", save);
         if (ft_strchr(save, '\n'))
         break;
     }
-    
+    //printf("save apres join --> %s\n", save);
+     
     *line = save_line(save);
-    printf("%s", *line);
+    //printf("%s", *line);
     save = save_rest(save);
     if (!save)
     return (0);
-    printf("%s", save);
+    //printf("save apres save rest = %s\n", save);
     return(1);
 }
 

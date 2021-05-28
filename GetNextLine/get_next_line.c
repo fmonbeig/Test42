@@ -6,14 +6,13 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:56:09 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/28 12:39:07 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/28 15:23:12 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "get_next_line.h"
-#define BUFFER_SIZE 99999
-#include "get_next_line_utils.c"
-#include <stdio.h>
+#include "get_next_line.h"
+//#include "get_next_line_utils.c"
+//#define BUFFER_SIZE 1
 
 static char *save_line(char *buff)
 {
@@ -59,14 +58,13 @@ static char *save_rest(char *save)
     return (ret);
 }
 
-
 int get_next_line(int fd, char **line)
 {
     int ret;
     char buff[BUFFER_SIZE + 1];
     static char *save;
 
-    if (fd < 0 || !line || BUFFER_SIZE < 0)
+    if (fd < 0 || !line || BUFFER_SIZE <= 0)
     return (-1);
      
     while ((ret = read(fd, buff, BUFFER_SIZE)) > 0)
@@ -90,21 +88,3 @@ int get_next_line(int fd, char **line)
     //printf("save apres save rest = %s\n", save);
     return(1);
 }
-
-
-
-
- /*    while (find_line(save) != 1 && ret != 0)
-    {
-    ret = read(fd, buff, BUFFER_SIZE);
-    if (ret == -1)
-    {
-        free(buff);
-        return (-1);    
-    }
-    buff[ret] = '\0';
-    
-    save = ft_strjoin(save, buff);
-    free(buff);
-    }
-*/

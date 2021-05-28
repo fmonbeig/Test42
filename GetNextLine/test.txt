@@ -1,0 +1,5 @@
+Bonjour je suis a 42
+Et je suis entrain
+De coder la fonction
+GNL
+

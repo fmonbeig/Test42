@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:53:51 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/28 15:23:18 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/30 23:08:01 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int main (int argv, char **argc)
     int fd;
     int n = 1;
     
-    fd = open("test.txt", O_RDONLY);
-  
+    fd = open("vide", O_RDONLY);
+    
     while(n)
     {
     n = get_next_line(fd, &line);
@@ -37,7 +37,6 @@ int main (int argv, char **argc)
     printf("%s\n", line);
     free(line);
     }
-
     close(fd);
     
     return (0);

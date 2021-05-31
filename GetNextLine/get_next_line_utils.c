@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:14:43 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/28 16:23:41 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/28 19:30:58 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,18 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	char	*str;
 	int		i;
 
-	i = 0;
+	i = -1;
 	if (!s1 || !s2)
 		return (NULL);
 	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
 		return (NULL);
-	while (*s1)
-		str[i++] = *s1++;
+	while (s1[++i])
+		str[i] = s1[i];
 	while (*s2)
 		str[i++] = *s2++;
 	str[i] = 0;
-	//free ((char *) s1);
+	free ((char *) s1);
 	return (str);
 }
 

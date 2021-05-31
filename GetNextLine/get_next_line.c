@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:56:09 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/28 15:23:12 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/05/30 23:10:22 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ int get_next_line(int fd, char **line)
         break;
     }
     //printf("save apres join --> %s\n", save);
-     
+     if (ret <= 0 && !save)
+     return (-1);
     *line = save_line(save);
     //printf("%s", *line);
     save = save_rest(save);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 12:14:43 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/28 19:30:58 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/02 14:29:55 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,3 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	free ((char *) s1);
 	return (str);
 }
-

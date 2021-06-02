@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:53:51 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/30 23:08:01 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/02 10:19:05 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,28 @@ int main (int argv, char **argc)
     char *line;
     int fd;
     int n = 1;
+    int t = 1;
     
-    fd = open("vide", O_RDONLY);
-    
+    //fd = open("gnl-war-machine-v2019/tests/user_output_buff_9999_Mr._Justice_Maxell_by_Edgar_Wallace.txt", O_RDONLY);
+    fd = open("test", O_RDWR);
+
+
     while(n)
     {
-    n = get_next_line(fd, &line);
+        printf("Boucle %d \n =======\n", t++);
+     n = get_next_line(fd, &line);
      if(n == -1)
      {
      printf("GNL FAILED");
+     printf("%d \n", n);
+    printf("%s\n", line);
         break;
      }
-    printf("%d \n", n);
-    printf("%s\n", line);
+    printf("retour gnl = %d \n", n);
+    printf("la ligne == %s\n", line);
+
     free(line);
+    line = NULL;
     }
     close(fd);
     

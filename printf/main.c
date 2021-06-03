@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 14:13:41 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/03 15:27:31 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/03 17:30:19 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int main( int argc, char * argv[] ) {
 int i;
     int result = addition( 2 /* counter */, 3, 11 );
     printf( "addition( 2, 3, 11 ) == %d\n", result );     /* 14 */
-
 
     result = addition( 3 /* counter */, 4, 5, 6 );
 i =    printf( "addition( 3, 4, 5, 6 ) == %d\n", result );   /* 15 */

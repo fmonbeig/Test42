@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 17:41:42 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/03 15:49:23 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/03 17:41:16 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,13 @@ if (*format == '%')
     {
        i = (int)va_arg(info, int);
        putnbr(i);
-       count++;
+       count +=
     }
 }
-
+printf("%0.36d", 54)
 
     
 }
 
 // Printf renvoie le nomnre de caractère à imprimer
+// https://www.lix.polytechnique.fr/~liberti/public/computing/prog/c/C/FUNCTIONS/format.html

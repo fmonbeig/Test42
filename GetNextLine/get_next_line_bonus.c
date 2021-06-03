@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 11:56:09 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/02 16:10:31 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/03 10:47:51 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	*save_line(char *str)
 	while (str[i] && str[i] != '\n')
 		i++;
 	line = malloc(sizeof(char) * i + 1);
-	if (!str)
+	if (!line)
 		return (NULL);
 	i = -1;
 	while (str[++i] && str[i] != '\n')

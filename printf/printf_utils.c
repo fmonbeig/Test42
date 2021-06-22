@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 22:12:41 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/22 14:23:26 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/22 18:49:33 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,51 +34,42 @@ int is_format(char c)
     return(0);
 }
 
-void parse_layout(const char *format, t_layout *lay, int pos)
+void print_zero_space(t_layout *lay, int space, int i) // renommer la fonction car elle est speciale integer  et peut etre creer un doc output ou printing
 {
-    // faire avec le positionning et faire des fonctions par flag
+    if (lay->zero == 1)
+    {
+        if(i < 0)
+        {
+            write(1, "-", 1);
+            space--;
+        }
+         while (space > 0)
+    {
+        write(1, "0", 1);
+        space--;
+    }
+    }
+    else
+    {
+        while (space > 0)
+    {
+       write(1, " ", 1);
+       space--;     
+    }
+    }
+}
+
+int parse_layout(const char *format, t_layout *lay, int pos)
+{
     if (format[pos] == '-')
        pos = parsing_left_justify(format, lay, pos);
     if (format[pos] == '0')
             pos = parsing_zero(format, lay, pos);
-    if (format[pos] == '*')
-        {
-        lay->width = (int)va_arg(lay->info, int);
-        pos++;
-        }
-    if (ft_isdigit(*format) && *format)
-        lay->width = atoi(format);
+    if (format[pos] == '*' || ft_isdigit(format[pos]))
+            pos = parsing_width(format,lay, pos);
     if (format[pos] == '.')
-    {
-        lay->prec = 1;
-        pos++;
-    }
-    if (format[pos] == '*')
-    {
-        lay->width = (int)va_arg(lay->info, int);
-        pos++;
-    }
-	if (ft_isdigit(*format) && *format)
-        lay->width = atoi(format);
-    if (is_format(*format))
-        lay->conv = *format;
+   pos = parsing_precision(format,lay, pos);
+    if (is_format(format[pos]))
+        lay->conv = format[pos];
+    return(pos + 1);
 }
-
-int print_format(const char *format, t_layout *lay, int pos)
-{
-    int i;
-    
-    parse_layout(format, lay, pos);
-   printf("\n conv = %c", lay->conv);
-   printf("\n justif = %d", lay->left_justif);
-   printf("\n zero = %d", lay->zero);
-   printf("\n width = %d\n", lay->width);
-    if(lay->conv == 'd')
-    {
-    i = (int)va_arg(lay->info, int);
-       ft_putnbr(i);
-       return(ft_countnbr(i));
-    }   
-	return 0;
-}
-

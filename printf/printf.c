@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 17:41:42 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/22 14:08:25 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/22 17:48:28 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 //#include "libft.h"
 //#include "printf_utils.c"
 
-t_layout	*ft_init_layout(int width)
+t_layout	*ft_init_layout()
 {
 	t_layout    *lay;
 
 	lay = malloc(sizeof(*lay));
 	if (!lay)
 		return (NULL);
-	lay->width = width;
+	lay->width = 0;
     lay->left_justif = 0;
     lay->zero = 0;
     lay->prec = 0;
@@ -30,10 +30,19 @@ t_layout	*ft_init_layout(int width)
 	return (lay);
 }
 
+void	ft_reset_layout(t_layout *lay)
+{
+	lay->width = 0;
+    lay->left_justif = 0;
+    lay->zero = 0;
+    lay->prec = 0;
+    lay->conv = 0;
+}
+
 int ft_printf(const char *format, ...)
 {
 t_layout *lay;
-lay = ft_init_layout(0);
+lay = ft_init_layout();
 va_start (lay->info, format);
 int pos;
 int count;
@@ -46,10 +55,14 @@ while (format[pos])
    count += ft_put_and_countchar(format[pos++]); //possibilite de mettre juste un write pour economiser une fonction
     if (format[pos] == '%')
 { 
-    count += print_format(format, lay, pos++ +1);
-    while(!is_format(format[pos]) && format[pos])
-    pos++;
-    pos++;
+    pos = parse_layout(format, lay, pos + 1);
+  // printf("\n conv = %c", lay->conv);
+  // printf("\n justif = %d", lay->left_justif);
+  // printf("\n zero = %d", lay->zero);
+  //printf("\n width = %d", lay->width);
+  // printf("\n prec = %d\n", lay->prec);
+   count += print_argument(lay);
+   ft_reset_layout(lay);
 }
 }
 va_end(lay->info);
@@ -79,18 +92,4 @@ la width avec d apres un nombre == mais le nombre dans un tableau de x caractere
 check le %
 check si c est un element qui change la justif -0 et la taille 123456789 et le . et le *
 
-*/
-/*
-Avec pos a -1
-while (format[++pos])
-{
-    if (format[pos] == '%')
-{ 
-    count += print_format(format, lay, pos++ +1);
-    while(!is_format(format[pos]) && format[pos])
-    pos++;
-}
-    else if (format[pos] != '%')
-   count += ft_put_and_countchar(format[pos]); //possibilite de mettre juste un write pour economiser une fonction
-}
 */

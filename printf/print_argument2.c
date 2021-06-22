@@ -1,25 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   print_argument2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 21:48:31 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/22 18:35:18 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/06/22 16:45:03 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/06/22 16:45:37 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-//#include "printf_utils.c"
+#include "printf.h"
+#include "libft.h"
 
-
-int main ()
-{
-    float f = -89;
-    int n;
-    printf("-%7.2f-\n", f);
-    
-    
-    return 0 ;
-}

@@ -3,51 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   printf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 17:41:42 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/13 19:31:48 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/22 14:08:25 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+#include "libft.h"
 //#include "libft.h"
 //#include "printf_utils.c"
 
+t_layout	*ft_init_layout(int width)
+{
+	t_layout    *lay;
+
+	lay = malloc(sizeof(*lay));
+	if (!lay)
+		return (NULL);
+	lay->width = width;
+    lay->left_justif = 0;
+    lay->zero = 0;
+    lay->prec = 0;
+    lay->conv = 0;
+	return (lay);
+}
+
 int ft_printf(const char *format, ...)
 {
-va_list info;
-va_start (info, format);
+t_layout *lay;
+lay = ft_init_layout(0);
+va_start (lay->info, format);
+int pos;
 int count;
-int i;
 
+pos = 0;
 count = 0;
-while (*format)
+while (format[pos])
 {
-    while (*format && *format != '\\' && *format != '%')
-    {
-    ft_putchar(*format);
-    format++;
-    count++;
-    }
-    if (*format == '\\')
-    {
-    format++;
-    backslash_rule(*format);
-    count++;
-    continue;
-    }
-    if (*format == '%')
-{
-    format++;
-    count += print_format(format, info);
-    format++;
-    continue;
-    }
+    while (format[pos] && format[pos] != '%')
+   count += ft_put_and_countchar(format[pos++]); //possibilite de mettre juste un write pour economiser une fonction
+    if (format[pos] == '%')
+{ 
+    count += print_format(format, lay, pos++ +1);
+    while(!is_format(format[pos]) && format[pos])
+    pos++;
+    pos++;
 }
-va_end(info);
-return (count) ;
 }
+va_end(lay->info);
+free(lay);
+return (count);
+}
+
+
+
+
+
+
+
 
 /*
 // Printf renvoie le nombre de caractère à imprimer
@@ -64,4 +79,18 @@ la width avec d apres un nombre == mais le nombre dans un tableau de x caractere
 check le %
 check si c est un element qui change la justif -0 et la taille 123456789 et le . et le *
 
+*/
+/*
+Avec pos a -1
+while (format[++pos])
+{
+    if (format[pos] == '%')
+{ 
+    count += print_format(format, lay, pos++ +1);
+    while(!is_format(format[pos]) && format[pos])
+    pos++;
+}
+    else if (format[pos] != '%')
+   count += ft_put_and_countchar(format[pos]); //possibilite de mettre juste un write pour economiser une fonction
+}
 */

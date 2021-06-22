@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 21:48:31 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/13 19:39:53 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/22 14:21:18 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
-#include "printf.c"
-#include "printf_utils.c"
+#include <stdio.h>
+//#include "printf_utils.c"
+
 
 int main ()
 {
-    float i = 22;
+    int f = 89;
     int n;
-    printf("poil %8.*f poil", 1,i);
+    printf("poil %-05d poil\n",f);
     
     
     return 0 ;

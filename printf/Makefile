@@ -6,7 +6,7 @@
 #    By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/02 17:43:56 by fmonbeig          #+#    #+#              #
-#    Updated: 2021/06/03 15:25:46 by fmonbeig         ###   ########.fr        #
+#    Updated: 2021/06/21 11:47:16 by fmonbeig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,27 +16,22 @@ CC = gcc
 
 CFLAG = -Wall -Wextra -Werror
 
-SRC = ft_strlen.c \
-ft_bzero.c \
+LIBFT_PATH = /libft
 
-BONUS = ft_lstnew.c \
-ft_lstadd_front.c \
+SRC = src/printf_utils.c\
+     src/printf.c\
 
 OBJ = $(SRC:.c=.o)
 
-OBJ_BONUS=	$(BONUS:.c=.o)
 
-$(NAME): $(OBJ)
-	ar cr $(NAME) $(OBJ)
-	ranlib $(NAME)
-
-bonus:		$(OBJ) $(OBJ_BONUS)
-			@ar rc $(NAME) $^
-			@echo "$(NAME) created with bonus"
-			@ranlib $(NAME)
-			@echo "$(NAME) indexed with bonus"
 			
 all: $(NAME)
+
+$(NAME): $(OBJ) libftmake
+	ar rcs $(NAME) $(OBJ)
+
+libftmake :
+$(MAKE) -C $(LIBFT_PATH)
 
 %.o: %.c
 	$(CC) $(CFLAG) -I includes -o $@ -c $<

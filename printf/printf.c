@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 17:41:42 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/22 17:48:28 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/23 15:15:31 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ while (format[pos])
   // printf("\n zero = %d", lay->zero);
   //printf("\n width = %d", lay->width);
   // printf("\n prec = %d\n", lay->prec);
+  //printf("\nvaleur de count %d\n",count);
    count += print_argument(lay);
    ft_reset_layout(lay);
 }

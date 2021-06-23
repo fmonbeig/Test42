@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 14:53:24 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/23 14:55:36 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/23 17:50:45 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void print_width_integer(t_layout *lay, int space, int i) // creer un doc output
     }
 }
 
-void print_precision_integer_justif(t_layout *lay, int space, int i) // gerer le count
+void print_precision_integer_justif(t_layout *lay, int space, int i)
 {
     int minus;
     int len;
@@ -48,7 +48,7 @@ void print_precision_integer_justif(t_layout *lay, int space, int i) // gerer le
     write(1, "-", 1);
     }
     len = lay->prec - (ft_countnbr(i) - minus);
-    space = lay->width - lay->prec - minus;
+    space = calcul_space_integer(lay, i, minus);
     while (len > 0)
     {
         write(1, "0", 1);
@@ -69,8 +69,8 @@ void print_precision_integer(t_layout *lay, int space, int i)
     if (i < 0)
     minus = 1;
     len = lay->prec - (ft_countnbr(i) - minus);
-    space = lay->width - lay->prec - minus;
-    if(space > 0)
+    space = calcul_space_integer(lay, i, minus);
+    if (space > 0)
     print_width_integer(lay,space,i);
      if (minus > 0)
     write(1, "-", 1);  
@@ -90,11 +90,11 @@ int return_count_integer(t_layout *lay, int i)
     if (i < 0)
     minus = 1;
     if (lay->prec == 0 && lay->width == 0)
-    return(ft_countnbr(i));
-    else if (lay->prec > lay->width || lay->prec == lay->width)
+    return (ft_countnbr(i));
+    else if (lay->prec >= lay->width)
     {
         if (lay->prec > ft_countnbr(i))
-        return(lay->prec + minus);
+            return (lay->prec + minus);
         else
         return (ft_countnbr(i));
     }
@@ -108,32 +108,21 @@ int return_count_integer(t_layout *lay, int i)
     return(0);
 }
 
-int print_integer(t_layout *lay)
+int calcul_space_integer(t_layout *lay, int i, int minus)
 {
-    int i;
-    int space;
-    
-    i = (int)va_arg(lay->info, int);
-    space = lay->width - ft_countnbr(i);
-    if (lay->left_justif == 1)
+    if (lay->prec + minus >= lay->width)
+            return (0);
+    else if (lay->prec + minus < lay->width)
     {
-        if (lay->prec > 0)
-        print_precision_integer_justif(lay,space,i);
-        else 
+        if (lay->width <= ft_countnbr(i))
+        return(0);
+        else if (lay->width >= ft_countnbr(i))
         {
-        ft_putnbr(i);
-        print_width_integer(lay,space,i);
-        }
-    }
-    else
-    {
-    if (lay->prec > 0)
-        print_precision_integer(lay,space,i);
+        if (lay->prec + minus >= ft_countnbr(i))
+        return (lay->width - lay->prec - minus);
         else
-        {
-    print_width_integer(lay,space,i);
-    ft_putnbr_no_minus(i);
+        return (lay->width - ft_countnbr(i));
         }
     }
-    return(return_count_integer(lay,i));
+    return(0);
 }

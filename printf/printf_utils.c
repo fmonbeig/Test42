@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 22:12:41 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/22 18:49:33 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/23 14:53:52 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,7 @@ int is_format(char c)
     return(0);
 }
 
-void print_zero_space(t_layout *lay, int space, int i) // renommer la fonction car elle est speciale integer  et peut etre creer un doc output ou printing
-{
-    if (lay->zero == 1)
-    {
-        if(i < 0)
-        {
-            write(1, "-", 1);
-            space--;
-        }
-         while (space > 0)
-    {
-        write(1, "0", 1);
-        space--;
-    }
-    }
-    else
-    {
-        while (space > 0)
-    {
-       write(1, " ", 1);
-       space--;     
-    }
-    }
-}
-
+    
 int parse_layout(const char *format, t_layout *lay, int pos)
 {
     if (format[pos] == '-')

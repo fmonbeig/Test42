@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 14:13:03 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/22 18:38:19 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/23 10:40:47 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,13 @@ int parsing_precision(const char *format, t_layout *lay, int pos)
     if (format[pos] == '*')
         {
         lay->prec = (int)va_arg(lay->info, int);
+        if (lay->prec < 0)
+        lay->prec = 0;
         pos++;
         }
     else if (ft_isdigit(format[pos]))
         {
         lay->prec = atoi(&format[pos]);
-        // si precision negative ca annule la precision
             while(format[pos] && ft_isdigit(format[pos]))
                 pos++;
         }

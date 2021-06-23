@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 09:34:47 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/22 18:46:05 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/23 14:41:46 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ int print_argument(t_layout *lay);
 void    ft_reset_layout(t_layout *lay);
 int print_integer(t_layout *lay);
 int print_character(t_layout *lay);
-void print_zero_space(t_layout *lay, int space, int i);
+void print_width_integer(t_layout *lay, int space, int i);
+void print_precision_integer(t_layout *lay, int space, int i);
+void print_precision_integer_justif(t_layout *lay, int space, int i);
+int return_count_integer(t_layout *lay, int i);
 
 #endif

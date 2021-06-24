@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 09:34:47 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/23 17:51:48 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/24 16:24:55 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,30 @@ void print_precision_integer_justif(t_layout *lay, int space, int i);
 int return_count_integer(t_layout *lay, int i);
 int calcul_space_integer(t_layout *lay, int i, int minus);
 
+void print_width_hexa(t_layout *lay, int space);
+void print_precision_hexa_justif(t_layout *lay, int space, int i, char *base);
+void print_precision_hexa(t_layout *lay, int space, int i, char *base);
+int return_count_hexa(t_layout *lay, int i, char *base);
+int calcul_space_hexa(t_layout *lay, int i, char *base);
+
+void print_width_unsigned(t_layout *lay, int space);
+void print_precision_unsigned_justif(t_layout *lay, int space, int i);
+void print_precision_unsigned(t_layout *lay, int space, int i);
+int return_count_unsigned(t_layout *lay, int i);
+int calcul_space_unsigned(t_layout *lay, int i);
+
+void print_width_string(t_layout *lay, int space);
+void print_precision_string_justif(t_layout *lay, int space, char *str);
+void print_precision_string(t_layout *lay, int space, char *str);
+int return_count_string(t_layout *lay, char *str);
+int calcul_space_string (t_layout *lay, char *str);
+
 int print_character(t_layout *lay);
 void print_width_character(int space);
 int return_count_character(t_layout *lay);
+
+void print_zero(int i);
+void print_space(int i);
+
 
 #endif

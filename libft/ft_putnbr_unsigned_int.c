@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned_int.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 21:48:31 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/24 16:19:31 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/06/24 15:30:54 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/06/24 15:36:43 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-//#include "printf_utils.c"
+#include "libft.h"
 
-
-int main ()
+void	ft_putnbr_unsigned_int(unsigned int n)
 {
-   char str[] = "je vais a l ecole avec mon cartable";
-    
-  printf("%50.5s\n",str);
+	unsigned long int	num;
 
-    
-    return 0 ;
+	num = n;
+	if (num > 9)
+	{
+		ft_putnbr(num / 10);
+		num = num % 10;
+	}
+	ft_putchar(num + '0');
 }

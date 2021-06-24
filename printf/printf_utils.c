@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 22:12:41 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/23 14:53:52 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/24 14:47:45 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,24 @@
 int	ft_put_and_countchar(char c)
 {
 	return(write(1, &c, 1));
+}
+
+void print_zero(int i)
+{
+    while (i > 0)
+    {
+       write(1, "0", 1);
+       i--;     
+    }
+}
+
+void print_space(int i)
+{
+    while (i > 0)
+    {
+       write(1, " ", 1);
+       i--;     
+    }
 }
 
 int is_format(char c)
@@ -32,20 +50,4 @@ int is_format(char c)
         i++;
     }
     return(0);
-}
-
-    
-int parse_layout(const char *format, t_layout *lay, int pos)
-{
-    if (format[pos] == '-')
-       pos = parsing_left_justify(format, lay, pos);
-    if (format[pos] == '0')
-            pos = parsing_zero(format, lay, pos);
-    if (format[pos] == '*' || ft_isdigit(format[pos]))
-            pos = parsing_width(format,lay, pos);
-    if (format[pos] == '.')
-   pos = parsing_precision(format,lay, pos);
-    if (is_format(format[pos]))
-        lay->conv = format[pos];
-    return(pos + 1);
 }

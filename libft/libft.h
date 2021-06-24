@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:03:52 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/20 16:48:30 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/24 15:35:08 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,12 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_putchar_fd(char c, int fd);
+void	ft_putchar(char c);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_putnbr(int n);
+int		ft_countnbr(int n);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **alst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -65,5 +68,10 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void ft_putnbr_no_minus(int n);
+void	ft_putnbr_base(unsigned int nbr, char *base);
+int	ft_countnbr_base(unsigned int nbr, char *base);
+void	ft_putnbr_unsigned_int(unsigned int n);
+int	ft_countnbr_unsigned_int(unsigned int n);
 
 #endif

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_countnumber.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 21:48:31 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/24 16:19:31 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/06/03 15:51:34 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/06/23 09:56:25 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-//#include "printf_utils.c"
+#include "libft.h"
 
-
-int main ()
+int ft_countnbr(int n)
 {
-   char str[] = "je vais a l ecole avec mon cartable";
-    
-  printf("%50.5s\n",str);
-
-    
-    return 0 ;
+	long int	num;
+    int  count;
+	
+    count = 0;
+    num = n;
+	if (num < 0)
+	{
+		num *= -1;
+        count++;
+	}
+	while(num > 0)
+	{
+		num /= 10;
+		count++;
+	}
+    return (count);
 }

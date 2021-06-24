@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:03:52 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/23 10:02:22 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/24 15:35:16 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void ft_putnbr_no_minus(int n);
+void	ft_putnbr_base(unsigned int nbr, char *base);
+int	ft_countnbr_base(unsigned int nbr, char *base);
+void	ft_putnbr_unsigned_int(unsigned int n);
+int	ft_countnbr_unsigned_int(unsigned int n);
+
 
 #endif

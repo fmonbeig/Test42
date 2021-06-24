@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 14:13:03 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/23 10:40:47 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/24 14:35:25 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,19 @@ int parsing_precision(const char *format, t_layout *lay, int pos)
     else
     lay->prec = 0;
     return(pos);
+}
+
+int parse_layout(const char *format, t_layout *lay, int pos)
+{
+    if (format[pos] == '-')
+       pos = parsing_left_justify(format, lay, pos);
+    if (format[pos] == '0')
+            pos = parsing_zero(format, lay, pos);
+    if (format[pos] == '*' || ft_isdigit(format[pos]))
+            pos = parsing_width(format,lay, pos);
+    if (format[pos] == '.')
+   pos = parsing_precision(format,lay, pos);
+    if (is_format(format[pos]))
+        lay->conv = format[pos];
+    return(pos + 1);
 }

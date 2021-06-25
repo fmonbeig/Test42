@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 21:48:31 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/25 13:52:53 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/05/06 23:31:57 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/05/20 16:50:42 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-//#include "printf_utils.c"
+#include "libft.h"
 
-
-int main ()
+int	ft_lstsize(t_list *lst)
 {
-int a = 50;
+	int	i;
 
-printf("%-050p",&a);
-
-    
-    return 0 ;
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

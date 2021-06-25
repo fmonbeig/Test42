@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fmonbeig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 21:48:31 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/25 13:52:53 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/04/21 11:03:15 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/05/20 16:33:57 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-//#include "printf_utils.c"
+#include "libft.h"
 
-
-int main ()
+void	*ft_memset(void *s, int c, size_t len)
 {
-int a = 50;
+	unsigned char	*dest;
 
-printf("%-050p",&a);
-
-    
-    return 0 ;
+	dest = s;
+	while (len > 0)
+	{
+		*dest = (unsigned char)c;
+		dest++;
+		len--;
+	}
+	return (s);
 }

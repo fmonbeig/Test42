@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_countnbr_unsigned_int.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 21:48:31 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/25 13:52:53 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/06/24 15:33:46 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/06/24 15:38:24 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-//#include "printf_utils.c"
+#include "libft.h"
 
-
-int main ()
+int	ft_countnbr_unsigned_int(unsigned int n)
 {
-int a = 50;
-
-printf("%-050p",&a);
-
+	unsigned long int	num;
+    int count;
     
-    return 0 ;
+    count = 0;
+	num = n;
+    	while(num > 0)
+	{
+		num /= 10;
+		count++;
+	}
+    return(count);
 }

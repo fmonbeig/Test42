@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 21:48:31 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/25 13:52:53 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/05/02 17:12:54 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/05/24 10:55:11 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-//#include "printf_utils.c"
+#include "libft.h"
 
-
-int main ()
+void	ft_putstr_fd(char *s, int fd)
 {
-int a = 50;
-
-printf("%-050p",&a);
-
-    
-    return 0 ;
+	if (!s)
+		return ;
+	while (*s)
+		write(fd, s++, 1);
 }

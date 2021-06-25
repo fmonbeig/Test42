@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 21:48:31 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/25 13:52:53 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/04/22 11:41:13 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/05/24 13:32:33 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-//#include "printf_utils.c"
+#include "libft.h"
 
-
-int main ()
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-int a = 50;
+	unsigned char		*dst1;
+	const unsigned char	*src1;
 
-printf("%-050p",&a);
-
-    
-    return 0 ;
+	dst1 = dst;
+	src1 = src;
+	while (n > 0)
+	{
+		if (*src1 == (unsigned char)c)
+		{
+			*dst1 = *src1;
+			return (++dst1);
+		}
+		*dst1++ = *src1++;
+		n--;
+	}
+	return (NULL);
 }

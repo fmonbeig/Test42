@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   output_character.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 21:48:31 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/25 13:52:53 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/06/23 17:25:04 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/06/25 16:56:32 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-//#include "printf_utils.c"
+#include "../include/libft.h"
+#include "../include/ft_printf.h"
 
-
-int main ()
+void print_width_character(int space, t_layout *lay)
 {
-int a = 50;
+    if (lay->zero == 1)
+        print_zero(space);
+    else
+       print_space(space);
+}
 
-printf("%-050p",&a);
-
-    
-    return 0 ;
+int return_count_character(t_layout *lay)
+{
+    if(lay->width >= 1)
+    return(lay->width);
+    else
+    return (1);
 }

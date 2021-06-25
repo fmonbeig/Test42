@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 21:48:31 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/25 13:52:53 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/04/28 14:17:04 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/05/26 11:03:55 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-//#include "printf_utils.c"
+#include "libft.h"
 
-
-int main ()
+char	*ft_strdup(const char *s1)
 {
-int a = 50;
+	char	*ptr;
+	size_t	i;
+	size_t	size;
 
-printf("%-050p",&a);
-
-    
-    return 0 ;
+	i = -1;
+	size = ft_strlen(s1);
+	ptr = malloc(sizeof(char) * (size + 1));
+	if (!ptr)
+		return (NULL);
+	while (++i < size)
+		ptr[i] = s1[i];
+	ptr[i] = 0;
+	return (ptr);
 }

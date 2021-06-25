@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 21:48:31 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/25 13:52:53 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/04/21 11:02:45 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/05/26 16:40:49 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-//#include "printf_utils.c"
+#include "libft.h"
 
-
-int main ()
+void	ft_bzero(void *s, size_t n)
 {
-int a = 50;
+	unsigned char	*dest;
 
-printf("%-050p",&a);
-
-    
-    return 0 ;
+	dest = s;
+	while (n > 0)
+	{
+		*dest = 0;
+		dest++;
+		n--;
+	}
 }

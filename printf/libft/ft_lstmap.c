@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 21:48:31 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/25 13:52:53 by fmonbeig         ###   ########.fr       */
+/*   Created: 2021/05/10 12:38:27 by fmonbeig          #+#    #+#             */
+/*   Updated: 2021/05/26 10:52:04 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-//#include "printf_utils.c"
+#include "libft.h"
 
-
-int main ()
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-int a = 50;
+	t_list	*newlist;
+	t_list	*add;
 
-printf("%-050p",&a);
-
-    
-    return 0 ;
+	newlist = NULL;
+	while (lst && f)
+	{
+		add = ft_lstnew(f(lst->content));
+		if (!add)
+		{
+			ft_lstclear(&newlist, del);
+			return (0);
+		}
+		ft_lstadd_back(&newlist, add);
+		lst = lst->next;
+	}
+	return (newlist);
 }

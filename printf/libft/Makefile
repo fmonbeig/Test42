@@ -6,7 +6,7 @@
 #    By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/21 11:04:04 by fmonbeig          #+#    #+#              #
-#    Updated: 2021/06/25 17:04:42 by fmonbeig         ###   ########.fr        #
+#    Updated: 2021/06/26 10:13:39 by fmonbeig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,6 @@ ft_countnbr.c \
 ft_putnbr_no_minus.c \
 ft_putnbr_base.c \
 ft_putnbr_base_pointer.c \
-ft_putnbr_base_pointer_0x.c \
 ft_countnbr_base.c \
 ft_putnbr_unsigned_int.c \
 ft_countnbr_unsigned_int.c \

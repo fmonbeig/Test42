@@ -6,13 +6,13 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 09:49:33 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/23 09:59:47 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/29 16:08:17 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putnbr_no_minus(int n)
+void	ft_putnbr_no_minus(int n)
 {
 	long int	num;
 

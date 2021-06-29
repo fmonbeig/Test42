@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 18:12:24 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/23 18:42:43 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/29 16:11:16 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static void	ft_print_base(int i, char *base)
 	ft_putchar(base[i]);
 }
 
-static int		ft_error_base(char *str)
+static int	ft_error_base(char *str)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	if (ft_strlen(str) < 2)
@@ -48,8 +48,8 @@ static int		ft_error_base(char *str)
 
 void	ft_putnbr_base(unsigned int nbr, char *base)
 {
-    unsigned int    i;
-	unsigned int    size_base;
+	unsigned int	i;
+	unsigned int	size_base;
 
 	size_base = ft_strlen(base);
 	i = nbr;

@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 15:33:46 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/24 15:38:24 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/29 16:11:59 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 int	ft_countnbr_unsigned_int(unsigned int n)
 {
 	unsigned long int	num;
-    int count;
-    
-    count = 0;
+	int					count;
+
+	count = 0;
 	num = n;
-    	while(num > 0)
+	if (num == 0)
+		return (1);
+	while (num > 0)
 	{
 		num /= 10;
 		count++;
 	}
-    return(count);
+	return (count);
 }

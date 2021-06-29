@@ -6,16 +6,16 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 12:19:20 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/24 12:34:10 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/29 16:05:35 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_error_base(char *str)
+static int	ft_error_base(char *str)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	if (ft_strlen(str) < 2)
@@ -43,21 +43,22 @@ static int		ft_error_base(char *str)
 
 int	ft_countnbr_base(unsigned int nbr, char *base)
 {
-    unsigned int		i;
+	unsigned int		i;
 	unsigned int		size_base;
-    int count;
+	int					count;
 
-    count = 0;
+	count = 0;
 	size_base = ft_strlen(base);
 	i = nbr;
+	if (i == 0)
+		return (1);
 	if (ft_error_base(base) == 1)
 	{
-
-        while(i > 0)
-	{
-		i /= size_base;
-		count++;
+		while (i > 0)
+		{
+			i /= size_base;
+			count++;
+		}
 	}
-}
-    return (count);
+	return (count);
 }

@@ -6,72 +6,59 @@
 #    By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/02 17:43:56 by fmonbeig          #+#    #+#              #
-#    Updated: 2021/06/21 11:47:16 by fmonbeig         ###   ########.fr        #
+#    Updated: 2021/06/29 16:20:28 by fmonbeig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-CC = gcc
+CC =      gcc
 
-CFLAG = -Wall -Wextra -Werror
+CFLAG =   -Wall -Wextra -Werror
 
-LIBFT_PATH = /libft
+SRC_PATH=           src/
 
-SRC = src/printf_utils.c\
-     src/printf.c\
+LIBFT_PATH=			libft/
 
-OBJ = $(SRC:.c=.o)
+INCLUDE_PATH=       include/
 
+LIBFT_LIB=		libft.a
 
-			
+SRC =     src/printf_utils.c \
+          src/ft_printf.c \
+          src/output_character_and_pourcent.c \
+          src/output_hexa.c \
+          src/output_integer.c \
+          src/output_pointer.c \
+          src/output_string.c \
+          src/output_unsigned.c \
+          src/parsing_function.c \
+          src/print_argument.c \
+          src/print_argument2.c \
+          src/printf_utils2.c \
+          src/printf_utils3.c 
+          
+SRC_OBJ =           $(SRC:.c=.o)
+
+LIBFT_OBJ=		${LIBFT_PATH}*.o
+
+LIBFTMAKE=		$(MAKE) -C ${LIBFT_PATH}
+	
 all: $(NAME)
 
-$(NAME): $(OBJ) libftmake
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(SRC_OBJ) lmake
+	ar rcs $(NAME) $(SRC_OBJ) ${LIBFT_OBJ}
 
-libftmake :
-$(MAKE) -C $(LIBFT_PATH)
+lmake:
+		$(LIBFTMAKE)
 
-%.o: %.c
-	$(CC) $(CFLAG) -I includes -o $@ -c $<
+clean:
+				make -C ${LIBFT_PATH} clean
+				${RM} ${SRC_OBJ}
 
-clean: 
-	rm -f $(OBJ) $(OBJ_BONUS)
+fclean: 		clean
+				rm -f ${NAME} ${LIBFT_PATH}${LIBFT_LIB}
 
-fclean: clean
-	rm -f $(NAME)
+re:         	fclean all
 
-re: fclean all
-
-.PHONY: all clean fclean re
-
-- Essayer de faire son makefile qui compile avec la librairie
-
-(4) USE the library in other programs:
-    step 1: Add an include line (#include "mylib.h") in all program source files that use library definitions (e.g., test.c).
-
-    step 2: Link the program's .c file with the library object file 
-            (i.e. specify the mylib.o file as a command line argument to gcc): 
-
-             gcc  test.c mylib.o
-
-        OR to link in libmylib.so (or libmylib.a):
-
-             gcc  test.c -lmylib
-
-        OR to link with a library not in the standard path:
-
-             gcc  test.c -L/home/newhall/lib -lmylib
-
-        The resulting a.out out will contain machine code for all the functions 
-        defined in test.c plus any mylib library functions that are called by 
-        the test.c code. 
-
-
-		Include the library headers in (your) files.
-Then while building your executable, add the location of the library's header files to your compiler's include path and then link against the static library. As in
-
-gcc -I/Directory path where mylib header files are located/ foo.c bar.c /Directory where mylib archive is located/mylib.a
-
-Here foo.c and bar.c are files containing your code.
+.PHONY:        all clean fclean re lmake

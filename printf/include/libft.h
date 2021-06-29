@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 11:03:52 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/25 14:49:44 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/29 15:48:07 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,12 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-void ft_putnbr_no_minus(int n);
+void	ft_putnbr_no_minus(int n);
 void	ft_putnbr_base(unsigned int nbr, char *base);
 void	ft_putnbr_base_pointer(unsigned long int nbr, char *base);
-void	ft_putnbr_base_pointer_0x(unsigned long int nbr, char *base);
-int	ft_countnbr_base(unsigned int nbr, char *base);
+int		ft_countnbr_base(unsigned int nbr, char *base);
 void	ft_putnbr_unsigned_int(unsigned int n);
-int	ft_countnbr_unsigned_int(unsigned int n);
-int	ft_countnbr_base_pointer(unsigned long int nbr, char *base);
-
+int		ft_countnbr_unsigned_int(unsigned int n);
+int		ft_countnbr_base_pointer(unsigned long int nbr, char *base);
 
 #endif

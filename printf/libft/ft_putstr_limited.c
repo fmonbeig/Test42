@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 17:03:29 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/24 17:04:29 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/29 16:15:25 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_putstr_limited(char *s, int i)
 {
-	if (!s)
+	if (s == NULL)
 		return ;
 	while (*s && i > 0)
-    {
+	{
 		write(1, s++, 1);
-        i--;
-    }
+		i--;
+	}
 }

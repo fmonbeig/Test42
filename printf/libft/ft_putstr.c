@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:54:05 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/24 16:54:24 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/26 12:09:47 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr(char *s)
 {
-	if (!s)
+	if (s == NULL)
 		return ;
 	while (*s)
 		write(1, s++, 1);

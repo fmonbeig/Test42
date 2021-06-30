@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 11:37:50 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/29 18:03:24 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/30 11:26:05 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	print_width_pointer(t_layout *lay, int space)
 {
 	if (lay->zero == 1)
 	{
-		write(1, "0x", 2);
-		print_zero(space - 2, lay);
+		lay->ret += write(1, "0x", 2);
+		print_zero(space, lay);
 	}
 	else
 		print_space(space, lay);
@@ -49,9 +49,9 @@ void	print_precision_pointer(t_layout *lay, int space,
 		print_width_pointer(lay, space + 2);
 	else if (space > 0)
 		print_width_pointer(lay, space);
-	write(1, "0x", 2);
+	lay->ret += write(1, "0x", 2);
 	print_zero(len, lay);
-	ft_putnbr_base_pointer(i, base);
+	ft_putnbr_base_pointer_printf(i, base, lay);
 }
 
 int	calcul_space_pointer(t_layout *lay, unsigned long int i, char *base)

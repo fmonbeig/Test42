@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 09:34:47 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/29 18:04:16 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/30 11:27:55 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,7 @@ void		ft_putnbr_printf(int n, t_layout *lay);
 void		ft_putnbr_no_minus_printf(int n, t_layout *lay);
 void		ft_putnbr_unsigned_int_printf(unsigned int n, t_layout *lay);
 void		ft_putnbr_base_printf(unsigned int nbr, char *base, t_layout *lay);
+void		ft_putnbr_base_pointer_printf(unsigned long int nbr, char *base,
+				t_layout *lay);
 
 #endif

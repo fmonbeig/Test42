@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 16:53:25 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/05/21 17:28:00 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/30 10:41:38 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t			i;
 	size_t			j;
 	unsigned int	size_dst;
 	unsigned int	size_src;
 
-	i = 0;
 	j = 0;
 	size_dst = ft_strlen(dst);
 	size_src = ft_strlen(src);

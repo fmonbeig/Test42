@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 22:12:41 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/29 17:58:58 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/30 11:00:22 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_putnbr_base_pointer_0x_special(unsigned long int nbr,
 {
 	unsigned long int	size_base;
 
-	if (lay->hex == 1)
+	if (lay->hex == 1 && lay->zero == 0)
 	{
 		lay->ret += write(1, "0x", 2);
 		lay->hex = 0;

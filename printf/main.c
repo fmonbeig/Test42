@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 14:13:41 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/29 15:44:24 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/30 11:29:20 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int main ()
 int ret = 1;
 int rot = 1;
 
-/*
-printf("\n==========POINTER TEST================\n\n");  // erreur quandje passe en base hexa !!!
+
+printf("\n==========POINTER TEST================\n\n");
 
 int a;
 
@@ -98,10 +98,22 @@ ret = ft_printf("\nFT_PRINTF = j ai un gros pointeur %10p ohoh\n", 0, 0);
 rot = printf("   PRINTF = j ai un gros pointeur %10p ohoh \n", 0, 0);
 printf("valeur de retour %d\n",ret);
 printf("valeur de retour %d\n",rot);
-*/
 
+ret = ft_printf("\nFT_PRINTF = j ai un gros pointeur %050p ohoh\n", &a);
+rot = printf("   PRINTF = j ai un gros pointeur %050p ohoh \n", &a);
+printf("valeur de retour %d\n",ret);
+printf("valeur de retour %d\n",rot);
 
-/*
+ret = ft_printf("\nFT_PRINTF = j ai un gros pointeur %05p ohoh\n", &a);
+rot = printf("   PRINTF = j ai un gros pointeur %05p ohoh \n", &a);
+printf("valeur de retour %d\n",ret);
+printf("valeur de retour %d\n",rot);
+
+ret = ft_printf("\nFT_PRINTF = j ai un gros pointeur %05.15p ohoh\n", &a);
+rot = printf("   PRINTF = j ai un gros pointeur %05.15p ohoh \n", &a);
+printf("valeur de retour %d\n",ret);
+printf("valeur de retour %d\n",rot);
+
 printf("\n==========STRING TEST================\n\n");
 
 ret = ft_printf("\nFT_PRINTF = bonjour %015s Florian\n","je m'appelle");
@@ -195,9 +207,9 @@ rot = printf("   PRINTF = %3.15s-- \n","c");
 printf("valeur de retour %d\n",ret);
 printf("valeur de retour %d\n",rot);
 
-*/
 
-/*
+
+
 printf("\n==========UNSIGNED TEST================\n\n");
 
 ret = ft_printf("\nFT_PRINTF = bonjour %u Florian\n",50);
@@ -281,30 +293,21 @@ ret = ft_printf("\nFT_PRINTF = bonjour %010.*u Florian\n",-1, 89);
 rot = printf("   PRINTF = bonjour %010.*u Florian \n",-1, 89);
 printf("valeur de retour %d\n",ret);
 printf("valeur de retour %d\n",rot);
-*/
 
-ret = ft_printf("\nFT_PRINTF = bonjour %5% Florian\n",1);
-rot = printf("   PRINTF = bonjour %5% Florian \n",1);
+ret = ft_printf("FT_PRINTF = bonjour %5% Florian\n",1);
+rot = printf("FT_PRINTF = bonjour %5% Florian\n",1);
 printf("valeur de retour %d\n",ret);
 printf("valeur de retour %d\n",rot);
 
-ret = ft_printf("\nFT_PRINTF = bonjour %05% Florian\n",1);
-rot = printf("   PRINTF = bonjour %05% Florian \n",1);
-printf("valeur de retour %d\n",ret);
-printf("valeur de retour %d\n",rot);
-
-ret = ft_printf("\nFT_PRINTF = bonjour %-12% Florian\n",1);
-rot = printf("   PRINTF = bonjour %-12% Florian \n",1);
-printf("valeur de retour %d\n",ret);
-printf("valeur de retour %d\n",rot);
-
-ret = ft_printf("\nFT_PRINTF = bonjour % 05d Florian\n",1);
-rot = printf("   PRINTF = bonjour % 05d Florian \n",1);
+ret = ft_printf("FT_PRINTF = bonjour %05% Florian\n",1);
+rot = printf("PRINTF = bonjour %05% Florian\n",1);
 printf("valeur de retour %d\n",ret);
 printf("valeur de retour %d\n",rot);
 
 
-/*
+
+
+
 
 printf("\n==========HEXA TEST================\n\n");
 
@@ -367,8 +370,8 @@ ret = ft_printf("\nFT_PRINTF = bonjour %-12.32X Florian\n",-5);
 rot = printf("   PRINTF = bonjour %-12.32X Florian \n",-5);
 printf("valeur de retour %d\n",ret);
 printf("valeur de retour %d\n",rot);
-*/
-/*
+
+
 ret = ft_printf("\nFT_PRINTF =%.d--\n", 0);
 rot = printf("   PRINTF =%.d-- \n", 0);
 printf("valeur de retour %d\n",ret);
@@ -383,14 +386,7 @@ ret = ft_printf("\nFT_PRINTF =%.x--\n", 0);
 rot = printf("   PRINTF =%.x-- \n", 0);
 printf("valeur de retour %d\n",ret);
 printf("valeur de retour %d\n",rot);
-*/
 
-/*
-	TEST(13, print(" 0*%0-*.*x*0 0*%0*.*x*0 ", 2, 6, 102, 21, 10, -101));
-	
-	TEST(16, print(" --0*%0*.0x*0 0*%0*.10x*0-- ", -2, 0, 21, 1));
-	TEST(17, print(" --0*%0*.0x*0 0*%0*.10x*0-- ", -21, INT_MAX, 21, INT_MIN));
-	TEST(18, print(" --0*%0*.0x*0 0*%0*.10x*0-- ", -21, LONG_MAX, 21, LONG_MIN));
 printf("\n==========MULTIPLE TEST================\n\n");
 
 int b;
@@ -425,14 +421,7 @@ rot = printf("--%10p %-10p--  \n",  0, 0);
 printf("valeur de retour %d\n",ret);
 printf("valeur de retour %d\n",rot);
 
-*/
 
-/*
-
-TEST(12, print(" %10p %-10p ", 0, 0));
-*/
-
-/*
 printf("\n==========CHARACTER TEST================\n\n");
 
 ret = ft_printf("\nFT_PRINTF = bonjour %c Florian\n",0);
@@ -469,8 +458,6 @@ ret = ft_printf("\nFT_PRINTF = bonjour %.*i Florian\n", -4, 8);
     rot = printf("   PRINTF = bonjour %.*i Florian \n", -4, 8);
     printf("valeur de retour %d\n",ret);
     printf("valeur de retour %d\n",rot);
-*/
-/*
 
 printf("\n==========INTEGER TEST================\n\n");
 ret = ft_printf("\nFT_PRINTF = bonjour %d Florian\n",0);
@@ -589,7 +576,6 @@ rot = printf("   PRINTF = --0*%0*.0d*0 0*%0*.10d*0-- \n",-21, INT_MAX, 21, INT_M
 printf("valeur de retour %d\n",ret);
 printf("valeur de retour %d\n",rot);
 
-
 ret = ft_printf("\nFT_PRINTF = %5.10d\n", -20);
 rot = printf("   PRINTF = %5.10d \n",-20 );
 printf("valeur de retour %d\n",ret);
@@ -654,36 +640,8 @@ ret = ft_printf("\nFT_PRINTF = %05.*d--\n",-2,-12);
 rot = printf("   PRINTF = %05.*d-- \n",-2,-12);
 printf("valeur de retour %d\n",ret);
 printf("valeur de retour %d\n",rot);
-*/
-
-
-	//int		a = -2;
-	//int		b = -2;
-	//char	c = 'a';
-	//int		d = 2147483647;
-	//int		e = -2147483648;
-	//int		f = 42;
-	//int		g = 25;
-	//int		h = 4200;
-	//int		i = 8;
-	//int		j = -12;
-	//int		k = 123456789;
-	//int		l = 0;
-	//int		m = -12345678;
-	//char	*n = "abcdefghijklmnop";
-	//char	*o = "-a";
-	//char	*p = "-12";
-	//char	*q = "0";
-	//char	*r = "%%";
-	//char	*s = "-2147483648";
-	//char	*t = "0x12345678";
-	//char	*u = "-0";
-
-
 
 
 
 return (0);
 }
-
-// penser aux chiffres negatif avec la width et le zero  --> le zero se met toujours en premier

@@ -6,7 +6,7 @@
 /*   By: fmonbeig <fmonbeig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 10:55:55 by fmonbeig          #+#    #+#             */
-/*   Updated: 2021/06/29 18:01:32 by fmonbeig         ###   ########.fr       */
+/*   Updated: 2021/06/30 11:26:48 by fmonbeig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,18 @@ void	ft_putnbr_base_printf(unsigned int nbr, char *base, t_layout *lay)
 		i %= size_base;
 	}
 	lay->ret += write(1, &base[i], 1);
+}
+
+void	ft_putnbr_base_pointer_printf(unsigned long int nbr,
+		char *base, t_layout *lay)
+{
+	unsigned long int	size_base;
+
+	size_base = ft_strlen(base);
+	if (nbr >= size_base)
+	{
+		ft_putnbr_base_pointer_printf(nbr / size_base, base, lay);
+		nbr %= size_base;
+	}
+	lay->ret += write(1, &base[nbr], 1);
 }
